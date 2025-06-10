@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 # dependencies (better layer caching)
 COPY package*.json ./
 
-FROM base AS development
+FROM base AS dev
 
 RUN --mount=type=cache,target=/usr/src/app/.npm \
   npm set cache /usr/src/app/.npm && \
