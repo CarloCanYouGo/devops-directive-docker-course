@@ -67,6 +67,12 @@ services:
       context: ../05-example-web-application/api-golang/
       dockerfile: ../../06-building-container-images/api-golang/Dockerfile.6
     init: true
+    volumes:
+      - type: bind
+        source: ../05-example-web-application/api-golang/
+        target: /usr/src/app/
+      - type: volume
+        target: /usr/src/app/node_modules 
     depends_on:
       - db
     environment:
